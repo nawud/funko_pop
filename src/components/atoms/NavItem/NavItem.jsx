@@ -1,5 +1,6 @@
-import { Link } from 'react-router-dom';
-import './NavItem.css';
+
+import { Link } from "react-router-dom";
+import "./NavItem.css";
 
 const NavItem = ({ to, children }) => {
   return (

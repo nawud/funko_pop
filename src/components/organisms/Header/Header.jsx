@@ -1,13 +1,14 @@
-import Logo from '../../atoms/Logo/Logo';
-import Navigation from '../../molecules/Navigation/Navigation';
+import Logo from "../../atoms/Logo/Logo";
+import Navigation from "../../atoms/Navigation/Navigation";
+import "./Header.css";
 
-const Header = () => {
+function Header() {
   return (
     <header className="header">
       <Logo />
-      <Navigation />
+      <Navigation/>
     </header>
   );
-};
+}
 
 export default Header;

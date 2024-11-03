@@ -1,5 +1,5 @@
-import NavItem from '../src/components/atoms/NavItem/NavItem';
-
+import Header from './components/organisms/Header/Header'
+import Logo from './components/atoms/Logo/Logo'
 import './App.css'
 
 function App() {
@@ -7,9 +7,10 @@ function App() {
 
   return (
     <>
-      <Logo />
+     <Logo />
      <Navigation /> 
      <NavItem/>
+     <Header/>
     </>
   )
 }

@@ -1,5 +1,76 @@
 .navigation {
-    display: flex;
-    gap: 2rem;
-    align-items: center;
-  }
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  
+}
+.navigation a {
+  text-decoration: none;
+  color: #000000;
+  font-weight: 600;
+  padding: 0.5rem 0.75rem;
+  font-size: 18px;
+  position: relative;
+  transition: color 0.25s;
+
+}
+
+.navigation a {
+  text-decoration: none;
+  color: #000000;
+  font-weight: 600;
+  padding: 0.5rem 0.75rem;
+  font-size: 18px;
+  position: relative;
+  transition: all 0.3s ease;
+  isolation: isolate;
+}
+
+/* Efecto de fondo con blur */
+.navigation a::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(6px);
+  transform: scale(0.8);
+  opacity: 0;
+  transition: all 0.3s ease;
+  z-index: -1;
+}
+
+.navigation a:hover::before {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* Efecto de punto indicador */
+.navigation a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 4px;
+  height: 4px;
+  background: #4285f4;
+  border-radius: 50%;
+  transform: translate(-50%, 150%);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.navigation a:hover::after {
+  transform: translate(-50%, 100%);
+  opacity: 1;
+}
+
+
+.navigation a:hover {
+  color: #4285f4;
+  transform: translateY(-2px);
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.1),
+    0 0 0 1px rgba(255, 255, 255, 0.3);
+}
