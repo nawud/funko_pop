@@ -8,8 +8,8 @@ function Footer() {
       <footer>
         <div className="footer">
             <div className='contact'>
-                <p>About Us</p>
-                <p>Contact</p>
+                <p>Nosotros</p>
+                <p>Contacto</p>
             </div>
             <div className='social'>
                 <div className="twitter">
