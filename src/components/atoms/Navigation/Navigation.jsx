@@ -10,7 +10,7 @@ const NavItem = ({ to, children }) => (
 const Navigation = () => {
   return (
     <nav className="navigation">
-      <NavItem to="/coleccion">Colección</NavItem>
+      <NavItem to="/home">Home</NavItem>
       <NavItem to="/categorias">Categorías</NavItem>
       <NavItem to="/marcas">Marcas</NavItem>
     </nav>

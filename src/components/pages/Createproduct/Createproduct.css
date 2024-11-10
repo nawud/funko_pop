@@ -1,0 +1,12 @@
+.btn-add {
+    background-image: url('../../../assets/images/añadir.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: left;
+    padding-left: 40px;
+    height: 40px;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    font-size: 16px;
+}
