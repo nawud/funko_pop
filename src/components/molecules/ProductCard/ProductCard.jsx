@@ -14,8 +14,18 @@ const ProductCard = () => {
         const response = await getAllProducts();
         setProductCard(response);
     }
+
+    const handleDelete = async (id) => {
+        try {
+            await deleteProduct(id);
+            setProducts(products.filter(product => product.id !== id));
+        } catch (error) {
+            console.error("Error al eliminar:", error);
+        }
+    };
     useEffect(() => {
         getAllProductsApiservice()
+        handleDelete()
     }, [])
 
     return (
@@ -33,7 +43,7 @@ const ProductCard = () => {
                                 <p>{product.name}</p>
                                 <p>{product.description}</p>
                                 <p>{product.price.toLocaleString('es-ES', { style: 'currency', currency: 'EUR' })}</p>
-                                <Button />
+                                <Button btnText="comprar"/>
                             </div>
                         )
                     }
