@@ -1,61 +1,71 @@
+import { useEffect, useState } from 'react';
+import { createProduct, updateProduct } from '../../../services/ApiProductService';
+import './Createproduct.css';
 
-import { useState } from 'react';
-import { CreateProduct } from '../../../services/ApiProductService';
-import './Createproduct.css'
-const Createproduct = () => {
-  const [Producto, setProducto] = useState("");
-  const [Categoria, setCategoria] = useState("");
-  const [Imagen, setImagen] = useState("");
+const CreateProduct = ({ editingProduct, setEditingProduct }) => {
+  const [producto, setProducto] = useState("");
+  const [categoria, setCategoria] = useState("");
+  const [imagen, setImagen] = useState("");
   const [descripcion, setDescripcion] = useState("");
 
-  const addProduct = async (event) => {
-    event.preventDefault()
-
-    const newProduct = {
-      name: Producto,
-      category: Categoria,
-      image: Imagen,
-      description: descripcion
+  useEffect(() => {
+    if (editingProduct) {
+      setProducto(editingProduct.name);
+      setCategoria(editingProduct.category);
+      setImagen(editingProduct.image);
+      setDescripcion(editingProduct.description);
     }
-    await CreateProduct(newProduct);
+  }, [editingProduct]);
 
-  }
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const newProduct = {
+      name: producto,
+      category: categoria,
+      image: imagen,
+      description: descripcion
+    };
+
+    if (editingProduct) {
+      await updateProduct(editingProduct.id, newProduct);
+      setEditingProduct(null);
+    } else {
+      await createProduct(newProduct);
+    }
+
+    
+    setProducto("");
+    setCategoria("");
+    setImagen("");
+    setDescripcion("");
+  };
+
   return (
     <>
-      <h2>FORMULARIO</h2>
+      <h2>{editingProduct ? "Editar Producto" : "Formulario"}</h2>
       <div className='form-data'>
-        <form onSubmit={addProduct}>
+        <form onSubmit={handleSubmit}>
           <div>
             <label>Nombre del producto</label>
-            <input type="text"
-              value={Producto}
-              onChange={(event) => setProducto(event.target.value)} />
+            <input type="text" value={producto} onChange={(event) => setProducto(event.target.value)} />
           </div>
           <div>
             <label>Categoria</label>
-            <input type="text"
-              value={Categoria}
-              onChange={(event) => setCategoria(event.target.value)} />
+            <input type="text" value={categoria} onChange={(event) => setCategoria(event.target.value)} />
           </div>
           <div>
             <label>Imagen</label>
-            <input type="text"
-              value={Imagen}
-              onChange={(event) => setImagen(event.target.value)} />
+            <input type="text" value={imagen} onChange={(event) => setImagen(event.target.value)} />
           </div>
           <div>
             <label>Descripcion</label>
-            <input type="text"
-              value={descripcion}
-              onChange={(event) => setDescripcion(event.target.value)} />
+            <input type="text" value={descripcion} onChange={(event) => setDescripcion(event.target.value)} />
           </div>
-          <button type="submit" className="btn-add">Añadir producto</button>
-
+          <button type="submit" className="btn-add">{editingProduct ? "Actualizar" : "Añadir"} producto</button>
         </form>
       </div>
     </>
-  )
+  );
+};
 
-}
-
-export default Createproduct
+export default CreateProduct;

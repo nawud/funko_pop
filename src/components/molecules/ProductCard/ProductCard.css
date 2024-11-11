@@ -6,6 +6,9 @@
     align-items: center;
     padding: 15px;
 }
+.container-section {
+    flex: 1;
+}
 
 .products-card {
     display: flex;
@@ -25,7 +28,6 @@
     justify-content: center;
     align-items: center;
     height: auto;
-    border: 1px solid #ccc;
     background-color: #fff;
     border-radius: 25px;
     padding: 15px; 
@@ -45,6 +47,8 @@
     text-align: center;
     margin: 0 auto;
     line-height: 1.8; 
+    border: 1px solid #ccc;
+    padding-bottom: 20px;
     color: #333;
 }
 
@@ -111,4 +115,48 @@
         width: 100%;
         max-width: 280px;
     }
+}
+.crud {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+    margin-bottom: 500px;
+}
+.crud img {
+    width: 20px;
+    height: auto;
+    gap: 100px;
+}
+.crud-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.btn-update, .btn-delete {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.btn-update {
+    background-color: #4CAF50; 
+    color: white;
+}
+
+.btn-delete {
+    background-color: #ef8e87; 
+    color: white;
+}
+
+.btn-update img, .btn-delete img {
+    width: 16px;
+    height: 16px;
 }
