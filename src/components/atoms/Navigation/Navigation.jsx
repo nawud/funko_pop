@@ -31,7 +31,7 @@ const Navigation = () => {
       </div>
 
       <nav className={`navigation ${isOpen ? 'active' : ''}`}>
-        <NavItem to="/home" onClick={handleLinkClick}>Home</NavItem>
+        <NavItem to="/" onClick={handleLinkClick}>Home</NavItem>
         <NavItem to="/categorias" onClick={handleLinkClick}>Categorías</NavItem>
         <NavItem to="/marcas" onClick={handleLinkClick}>Marcas</NavItem>
       </nav>
