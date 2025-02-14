@@ -1,6 +1,6 @@
-import './Footer.css'
 import social from '../../../assets/images/twitter.svg'
 import social1 from '../../../assets/images/facebook.svg'
+import "./footer.css"
 
 function Footer() {
   return (
